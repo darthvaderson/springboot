@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class) // Spring 으로 Test할 것임을 Junit에 알림
-@WebMvcTest
+@WebMvcTest(controllers = HelloController.class) // controller 만 테스트 ; HelloController만 테스트
 public class HelloControllerTest {
     @Autowired
     MockMvc mvc;
