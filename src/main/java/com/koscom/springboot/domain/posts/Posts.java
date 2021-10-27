@@ -1,5 +1,6 @@
 package com.koscom.springboot.domain.posts;
 
+import com.koscom.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor // 디폴트 생성자
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // pk
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 채번 방식
@@ -22,6 +23,7 @@ public class Posts {
     private String content;
 
     private String author; // @Column 없으면 varchar(255), nullable = true
+
 
     @Builder // lombok 의 빌더
     public Posts(String title, String content, String author) {
