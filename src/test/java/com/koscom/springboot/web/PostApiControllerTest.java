@@ -123,4 +123,30 @@ public class PostApiControllerTest {
 
 
     }
+
+    @Test
+    void API를_통해서_Posts가_삭제된다() {
+
+        Posts savedPosts = postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+
+        Long updateID = savedPosts.getId();
+
+
+        String url = "http://localhost:" + port + "/api/v1/posts/" +updateID;
+        HttpEntity<Long> requestEntity = new HttpEntity<>(updateID);
+
+
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Long.class);
+
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isEqualTo(updateID);
+
+
+
+
+    }
 }
