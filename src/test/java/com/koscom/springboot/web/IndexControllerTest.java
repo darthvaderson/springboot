@@ -21,7 +21,7 @@ public class IndexControllerTest {
     public void 메인페이지_로딩() {
         String body =this.restTemplate.getForObject("/",String.class);
 
-        assertThat(body).contains("스트링부트");
+        assertThat(body).contains("서비스");
 
     }
 
