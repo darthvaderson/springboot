@@ -19,6 +19,21 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
+
+
+//   아래의 어노테이션 기반 코드로 개선 이전 코드
+//    @GetMapping("/")
+//    public String index(Model model) {  // ModelAndView
+//        postsService.save(new PostsSaveRequestDto("test","test","test"));
+//        model.addAttribute("posts",postsService.findAllDesc());
+//
+//        SessionUser user = (SessionUser)httpSession.getAttribute("user");
+//        if(user != null){
+//            model.addAttribute("user",user.getName());
+//        }
+//        return "index";
+//    }
+
 //    private final HttpSession httpSession;
 
     // 컨트롤러에서 리턴에 index라고 하면 자동으로 템플릿에 있는 index을 찾는다. - thymeleaf냐 mustache냐 : starter에 넣는것에 따라 달라짐
